@@ -9,7 +9,7 @@ namespace Fiorello.Controllers
 {
     public class HomeController : Controller
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
         public HomeController(AppDbContext context)
         {
             _context = context;
@@ -23,6 +23,7 @@ namespace Fiorello.Controllers
             List<Surprize> surprizes = await _context.Surprizes.ToListAsync();
             List<SurprizeList> surprizeLists = await _context.SurprizeLists.ToListAsync();
             List<Expert> experts = await _context.Experts.Include(m => m.Positions).ToListAsync();
+            List<Blog> blogs = await _context.Blogs.ToListAsync();
 
             HomeVM models = new()
             {
@@ -32,7 +33,8 @@ namespace Fiorello.Controllers
                 Products = products,
                 Surprizes = surprizes,
                 SurprizeLists = surprizeLists,
-                Experts = experts
+                Experts = experts,
+                Blogs = blogs
             };
             return View(models);
         }

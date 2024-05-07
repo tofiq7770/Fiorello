@@ -18,6 +18,40 @@ namespace Fiorello.DAL
         public DbSet<SurprizeList> SurprizeLists { get; set; }
         public DbSet<Expert> Experts { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Blog>()
+                        .HasData(
+                new Blog
+                {
+                    Id = 1,
+                    Title = "Flower Power",
+                    Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                    Date = DateTime.Now,
+                    Image = "blog-feature-img-1.jpg"
+
+                },
+                new Blog
+                {
+                    Id = 2,
+                    Title = "Local Florists",
+                    Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                    Date = DateTime.Now,
+                    Image = "blog-feature-img-3.jpg"
+
+                },
+                new Blog
+                {
+                    Id = 3,
+                    Title = "Flower Beauty",
+                    Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                    Date = DateTime.Now,
+                    Image = "blog-feature-img-4.jpg"
+
+                }
+                );
+        }
     }
 }

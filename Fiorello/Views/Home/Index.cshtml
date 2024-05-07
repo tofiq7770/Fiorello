@@ -71,7 +71,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                         <div class="product-item text-center" data-id="@item.CategoryId">
                             <div class="img">
-                                <a href="">
+                                <a asp-action="index" asp-controller="product" asp-route-id="@item.Id">
                                     <img src="~/img/@item.ProductImage.FirstOrDefault(m=>m.IsMain).Name" class="img-fluid" alt="">
                                 </a>
                             </div>
@@ -186,6 +186,10 @@
 
         <!-- BLOG START -->
 
+      <partial name="_BlogsPartial" model="Model.Blogs"/>
+
+@*
+
         <section id="blog">
             <div class="container">
                 <div class="row py-5">
@@ -199,58 +203,39 @@
                     </div>
                 </div>
                 <div class="row pb-5">
-                    <div class="col-md-6 col-lg-4">
+                    @foreach (var item in Model.Blogs)
+                    {
+                     <div class="col-md-6 col-lg-4">
                         <div class="item">
                             <div class="img position-relative">
-                                <img src="~/img/blog-feature-img-1.jpg" class="img-fluid" alt="">
+                                <img src="~/img/@item.Image" class="img-fluid" alt="">
                                 <div class="date rounded bg-light position-absolute py-1 px-2">
-                                    <span>29.12.2019</span>
+                                    <span>@item.Date.ToString("MM.dd.yyyy")</span>
                                 </div>
                             </div>
                             <div class="text mt-3 text-center px-5">
-                                <h5>Flower Power</h5>
-                                <p class="text-black-50">Class aptent taciti sociosqu ad litora torquent per conubia
-                                    nostra, per</p>
+                                <h5>@item.Title</h5>
+                                <p class="text-black-50">@item.Description</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="item">
-                            <div class="img position-relative">
-                                <img src="~/img/blog-feature-img-3.jpg" class="img-fluid" alt="">
-                                <div class="date rounded bg-light position-absolute py-1 px-2">
-                                    <span>29.12.2019</span>
-                                </div>
-                            </div>
-                            <div class="text mt-3 text-center px-5">
-                                <h5>Local Florists</h5>
-                                <p class="text-black-50">Class aptent taciti sociosqu ad litora torquent per conubia
-                                    nostra, per</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="item">
-                            <div class="img position-relative">
-                                <img src="~/img/blog-feature-img-4.jpg" class="img-fluid" alt="">
-                                <div class="date rounded bg-light position-absolute py-1 px-2">
-                                    <span>29.12.2019</span>
-                                </div>
-                            </div>
-                            <div class="text mt-3 text-center px-5">
-                                <h5>Flower Beauty</h5>
-                                <p class="text-black-50">Class aptent taciti sociosqu ad litora torquent per conubia
-                                    nostra, per</p>
-                            </div>
-                        </div>
-                    </div>
+                    </div>   
+                    }
                 </div>
             </div>
-        </section>
+        </section>*@
 
         <!-- BLOG END -->
 
         <!-- SAY START -->
+
+
+
+
+
+
+
+
+         
 
         <section id="say">
             <div class="container">
