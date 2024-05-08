@@ -19,6 +19,7 @@ namespace Fiorello.DAL
         public DbSet<Expert> Experts { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Instagram> Instagrams { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
     <link rel="stylesheet" href="~/product/css/style.css">
-    <title>Orange Amaryllis</title>
+    <title>Fiorello: @Model.Name</title>
 </head>
 
     <header id="head">
@@ -455,8 +455,9 @@
                     <div class="col-lg-5 col-md-6 col-sm-12">
                         <div class="summary">
                             <h2 class="title">@Model.Name</h2>
-                            <p class="price">$@Model.Price</p>
-                            <p class="text">@Model.Description</p>
+                            <p class="price">Price: $@Model.Price</p>
+                            <p class="price">Category: @Model.Category.Name</p>
+                            <p class="text">Description: @Model.Description</p>
                         </div>
                     </div>
                 </div>

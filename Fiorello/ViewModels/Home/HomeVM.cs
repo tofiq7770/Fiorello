@@ -12,6 +12,7 @@ namespace Fiorello.ViewModels.Home
         public List<SurprizeList> SurprizeLists { get; set; }
         public List<Expert> Experts { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Instagram> Instagrams { get; set; }
 
 
     }

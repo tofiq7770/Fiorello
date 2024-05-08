@@ -4,6 +4,7 @@ using Fiorello.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fiorello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240508143439_addedexpertsdesc")]
+    partial class addedexpertsdesc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +58,7 @@ namespace Fiorello.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 5, 8, 18, 44, 12, 905, DateTimeKind.Local).AddTicks(8401),
+                            Date = new DateTime(2024, 5, 8, 18, 34, 39, 611, DateTimeKind.Local).AddTicks(8817),
                             Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
                             Image = "blog-feature-img-1.jpg",
                             SoftDelete = false,
@@ -65,7 +67,7 @@ namespace Fiorello.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 5, 8, 18, 44, 12, 905, DateTimeKind.Local).AddTicks(8414),
+                            Date = new DateTime(2024, 5, 8, 18, 34, 39, 611, DateTimeKind.Local).AddTicks(8832),
                             Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
                             Image = "blog-feature-img-3.jpg",
                             SoftDelete = false,
@@ -74,7 +76,7 @@ namespace Fiorello.Migrations
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2024, 5, 8, 18, 44, 12, 905, DateTimeKind.Local).AddTicks(8415),
+                            Date = new DateTime(2024, 5, 8, 18, 34, 39, 611, DateTimeKind.Local).AddTicks(8833),
                             Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
                             Image = "blog-feature-img-4.jpg",
                             SoftDelete = false,
@@ -133,30 +135,6 @@ namespace Fiorello.Migrations
                     b.HasIndex("PositionId");
 
                     b.ToTable("Experts");
-                });
-
-            modelBuilder.Entity("Fiorello.Models.Instagram", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("SoftDelete")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Instagrams");
                 });
 
             modelBuilder.Entity("Fiorello.Models.Position", b =>
