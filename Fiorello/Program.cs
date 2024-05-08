@@ -15,6 +15,8 @@ opt.UseSqlServer(builder.Configuration.GetConnectionString("default"))
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IInstagramService, InstagramService>();
+builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<ISliderService, SliderService>();
 
 var app = builder.Build();
 

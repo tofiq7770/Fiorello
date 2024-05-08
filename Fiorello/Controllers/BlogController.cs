@@ -1,20 +1,19 @@
-﻿using Fiorello.DAL;
-using Fiorello.Models;
+﻿using Fiorello.Models;
+using Fiorello.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Fiorello.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly AppDbContext _context;
-        public BlogController(AppDbContext context)
+        private readonly IBlogService _blogService;
+        public BlogController(IBlogService blogService)
         {
-            _context = context;
+            _blogService = blogService;
         }
         public async Task<IActionResult> Index()
         {
-            List<Blog> blogs = await _context.Blogs.ToListAsync();
+            List<Blog> blogs = await _blogService.GetAllAsync();
             return View(blogs);
         }
     }

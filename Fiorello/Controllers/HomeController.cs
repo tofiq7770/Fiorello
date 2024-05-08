@@ -14,26 +14,33 @@ namespace Fiorello.Controllers
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly IInstagramService _instagramService;
+        private readonly IBlogService _blogService;
+        private readonly ISliderService _sliderService;
         public HomeController(AppDbContext context, IProductService productService
                                                   , ICategoryService categoryService
-                                                  , IInstagramService instagramService)
+                                                  , IBlogService blogService
+                                                  , IInstagramService instagramService
+                                                  , ISliderService sliderService)
         {
             _context = context;
             _productService = productService;
             _categoryService = categoryService;
+            _blogService = blogService;
             _instagramService = instagramService;
+            _sliderService = sliderService;
+
         }
         public async Task<IActionResult> Index()
         {
-            List<Slider> sliders = await _context.Sliders.ToListAsync();
+            List<Slider> sliders = await _sliderService.GetAllAsync();
             SliderInfo sliderinfos = await _context.SliderInfos.FirstOrDefaultAsync();
-            List<Category> categories = await _categoryService.getAllAsync();
-            List<Product> products = await _productService.getAllAsync();
+            List<Category> categories = await _categoryService.GetAllAsync();
+            List<Product> products = await _productService.GetAllAsync();
             List<Surprize> surprizes = await _context.Surprizes.ToListAsync();
             List<SurprizeList> surprizeLists = await _context.SurprizeLists.ToListAsync();
             List<Expert> experts = await _context.Experts.Include(m => m.Positions).ToListAsync();
-            List<Blog> blogs = await _context.Blogs.ToListAsync();
-            List<Instagram> instagrams = await _context.Instagrams.ToListAsync();
+            List<Blog> blogs = await _blogService.GetAllAsync();
+            List<Instagram> instagrams = await _instagramService.GetAllAsync();
 
             HomeVM models = new()
             {
@@ -49,6 +56,5 @@ namespace Fiorello.Controllers
             };
             return View(models);
         }
-
     }
 }

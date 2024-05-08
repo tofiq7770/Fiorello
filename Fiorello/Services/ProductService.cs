@@ -12,12 +12,12 @@ namespace Fiorello.Services
         {
             _context = context;
         }
-        public async Task<List<Product>> getAllAsync()
+        public async Task<List<Product>> GetAllAsync()
         {
             return await _context.Products.Include(m => m.ProductImage).ToListAsync();
         }
 
-        public async Task<Product> getByIdAsync(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
             return await _context.Products.Where(m => !m.SoftDelete)
                                                      .Include(m => m.Category)

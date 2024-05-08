@@ -5,6 +5,6 @@ namespace Fiorello.Services.Interfaces
 {
     public interface ICategoryService
     {
-        Task<List<Category>> getAllAsync();
+        Task<List<Category>> GetAllAsync();
     }
 }

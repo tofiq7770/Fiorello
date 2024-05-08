@@ -4,7 +4,7 @@ namespace Fiorello.Services.Interfaces
 {
     public interface IProductService
     {
-        Task<List<Product>> getAllAsync();
-        Task<Product> getByIdAsync(int id);
+        Task<List<Product>> GetAllAsync();
+        Task<Product> GetByIdAsync(int id);
     }
 }

@@ -1,22 +1,20 @@
-﻿
-
-using Fiorello.DAL;
+﻿using Fiorello.DAL;
 using Fiorello.Models;
 using Fiorello.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fiorello.Services
 {
-    public class InstagramService : IInstagramService
+    public class BlogService : IBlogService
     {
         private readonly AppDbContext _context;
-        public InstagramService(AppDbContext context)
+        public BlogService(AppDbContext context)
         {
             _context = context;
         }
-        public async Task<List<Instagram>> GetAllAsync()
+        public async Task<List<Blog>> GetAllAsync()
         {
-            return await _context.Instagrams.ToListAsync();
+            return await _context.Blogs.ToListAsync();
         }
     }
 }

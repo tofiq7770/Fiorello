@@ -4,6 +4,6 @@ namespace Fiorello.Services.Interfaces
 {
     public interface IInstagramService
     {
-        Task<List<Instagram>> getAllAsync();
+        Task<List<Instagram>> GetAllAsync();
     }
 }
