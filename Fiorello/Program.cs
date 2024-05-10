@@ -5,18 +5,26 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("default"))
 );
+
+#region AddScoped
+
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IInstagramService, InstagramService>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
+builder.Services.AddScoped<ISurprizeService, SurprizeService>();
+builder.Services.AddScoped<IExpertService, ExpertService>();
+builder.Services.AddScoped<ISurprizeListService, SurprizeListService>();
+builder.Services.AddScoped<ISliderInfosService, SliderInfosService>();
+
+#endregion
 
 var app = builder.Build();
 

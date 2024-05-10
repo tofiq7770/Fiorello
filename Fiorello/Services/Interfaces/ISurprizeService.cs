@@ -2,8 +2,8 @@
 
 namespace Fiorello.Services.Interfaces
 {
-    public interface ISliderService
+    public interface ISurprizeService
     {
-        Task<List<Slider>> GetAllAsync();
+        Task<List<Surprize>> GetAllAsync();
     }
 }

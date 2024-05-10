@@ -2,9 +2,9 @@
 
 namespace Fiorello.Services.Interfaces
 {
-    public interface ISliderService
+    public interface IBlogService
     {
-        Task<List<Slider>> GetAllAsync();
+        Task<List<Blog>> GetAllAsync();
 
     }
 }
