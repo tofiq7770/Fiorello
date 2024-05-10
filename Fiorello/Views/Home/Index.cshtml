@@ -52,9 +52,10 @@
                             <li><a href="" data-id="all">All</a></li>
                             @foreach (var item in Model.Categories)
                             {
-                                
-                            <li><a href="" data-id="@item.Id">@item.Name</a></li>
+                               if (item.products is not null){
+                                <li><a href="" data-id="@item.Id">@item.Name</a></li>
                             }
+                        }
                         </ul>
                         <ul class="list-unstyled">
                             <li>
