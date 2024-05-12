@@ -1,0 +1,16 @@
+﻿@using Fiorello.Models
+
+@model Category
+
+
+<div class="container mt-5 mx-3">
+
+    <h3>Name: @Model.Name</h3>
+
+    <div class=mt-4>
+        
+<a class="btn btn-primary" asp-area="Admin" asp-controller="Category" asp-action="Index">Back</a>
+<a class="btn btn-primary" asp-area="Admin" asp-controller="Category" asp-action="Update">Update</a>
+<a class="btn btn-danger" asp-area="Admin" asp-controller="Category" asp-action="Delete">Delete</a>
+    </div>
+</div>
