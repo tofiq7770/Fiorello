@@ -16,5 +16,9 @@ namespace Fiorello.Services
         {
             return await _context.Blogs.ToListAsync();
         }
+        public async Task<List<Blog>> GetShownDataAsync()
+        {
+            return await _context.Blogs.Take(3).ToListAsync();
+        }
     }
 }

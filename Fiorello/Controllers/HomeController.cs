@@ -43,7 +43,7 @@ namespace Fiorello.Controllers
             List<Surprize> surprizes = await _surprizeService.GetAllAsync();
             List<SurprizeList> surprizeLists = await _surprizeListService.GetAllAsync();
             List<Expert> experts = await _expertService.GetAllAsync();
-            List<Blog> blogs = await _blogService.GetAllAsync();
+            List<Blog> blogs = await _blogService.GetShownDataAsync();
             List<Instagram> instagrams = await _instagramService.GetAllAsync();
 
             HomeVM models = new()
